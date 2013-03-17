@@ -1,6 +1,7 @@
 module Foursquare
   class Base
     API = "https://api.foursquare.com/v2/"
+    CLIENT_CREATED = "20130316"
 
     def initialize(*args)
       case args.size
@@ -131,6 +132,8 @@ module Foursquare
       else
         params.merge!(:client_id => @client_id, :client_secret => @client_secret)
       end
+      
+      params.merge!(:v => CLIENT_CREATED)
     end
   end
 end
